@@ -1,4 +1,4 @@
-package checkpoint.andela.Constants;
+package checkpoint.andela.config;
 
 /**
  * Created by suadahaji.
