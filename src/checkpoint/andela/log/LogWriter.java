@@ -9,7 +9,7 @@ import java.io.*;
 public class LogWriter {
     private File file;
 
-    public LogWriter(){}
+    //public LogWriter(){}
 
     public LogWriter (String filePath) {
         file = new File(filePath);
