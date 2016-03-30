@@ -19,18 +19,13 @@ public class Main {
         Thread databaseWriter = new Thread(new DatabaseWriterThread());
         Thread logWriter = new Thread(new LogWriterThread(Constants.LOGPATH.toString()));
 
-        /*ExecutorService executor = Executors.newCachedThreadPool();
+        ExecutorService executor = Executors.newCachedThreadPool();
 
         executor.execute(fileParser);
         executor.execute(databaseWriter);
         executor.execute(logWriter);
 
-        executor.shutdown();*/
-
-
-        fileParser.run();
-        databaseWriter.run();
-        logWriter.run();
+        executor.shutdown();
     }
 
 }
