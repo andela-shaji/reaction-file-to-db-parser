@@ -11,7 +11,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class DatabaseBuffer extends LinkedBlockingQueue<Reactant> implements Buffer<Reactant> {
 
     public DatabaseBuffer(){
-        super(1);
+        super();
     }
     public void insert(Reactant reactant) {
         try {

@@ -29,7 +29,6 @@ public class ReactionParserThread implements Runnable {
             LogMessage.logMessage("FileParser", reactant.getUniqueId());
         }
         Complete.INSTANCE.setCompleted(true);
-        //Task.setWriting(false);
     }
 
     private void writeToBuffer(Reactant reactant) {

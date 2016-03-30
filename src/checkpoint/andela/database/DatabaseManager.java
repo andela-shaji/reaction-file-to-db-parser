@@ -67,25 +67,6 @@ public class DatabaseManager {
         }
     }
 
-    private void deleteTableRecords() throws Exception {
-        createDatabaseConnection(db_driver);
-       String deleteRecordsQuery = "DROP TABLE " + db_Name +"." + db_Table ;
-
-        try {
-            statement = connection.prepareStatement(deleteRecordsQuery);
-            statement.executeUpdate(deleteRecordsQuery);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                closeStatement(statement);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     public boolean insertIntoTable(Reactant reactant) {
         String insertRecordQuery = " INSERT INTO " + db_Name + "." + db_Table + " (`"
                 + Columns.UNIQUEID + "`, `" + Columns.TYPES + "`, `" + Columns.ATOMMAPPINGS + "`, `" + Columns.CREDITS + "`, `"
