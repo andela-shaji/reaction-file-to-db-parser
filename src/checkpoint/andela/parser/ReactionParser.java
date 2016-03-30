@@ -14,7 +14,7 @@ import java.util.List;
 public class ReactionParser {
     private HashMap<String, String > attributeValuePair = new HashMap<>();
 
-    private List<Reactant> reactants = new ArrayList<>();
+    private List<Reactant> reactants = new ArrayList<Reactant>();
 
     public ReactionParser() {}
 
