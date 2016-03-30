@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  * Created by suadahaji.
@@ -20,10 +19,16 @@ public class DatabaseManager {
     private String db_Password = Constants.PASS.toString();
     private String db_User = Constants.USER.toString();
     private String db_driver = Constants.DRIVER.toString();
-    private Connection connection = null;
+    private Connection connection;
     private PreparedStatement statement = null;
 
-    public DatabaseManager() {}
+    public DatabaseManager() {
+        try {
+            createDbTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     private Connection createDatabaseConnection(String driver) {
         try {
@@ -62,26 +67,7 @@ public class DatabaseManager {
         }
     }
 
-    public void deleteTableRecords() throws Exception {
-        createDatabaseConnection(db_driver);
-       String deleteRecordsQuery = "DROP TABLE " + db_Name +"." + db_Table ;
-
-        try {
-            statement = connection.prepareStatement(deleteRecordsQuery);
-            statement.executeUpdate(deleteRecordsQuery);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                closeStatement(statement);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void insertIntoTable(Reactant reactant) {
+    public boolean insertIntoTable(Reactant reactant) {
         String insertRecordQuery = " INSERT INTO " + db_Name + "." + db_Table + " (`"
                 + Columns.UNIQUEID + "`, `" + Columns.TYPES + "`, `" + Columns.ATOMMAPPINGS + "`, `" + Columns.CREDITS + "`, `"
                 + Columns.ECNUMBER + "`, `" + Columns.ENZYMATICREACTION + "`, `" + Columns.LEFT + "`, `" + Columns.RIGHT + "`) "
@@ -99,10 +85,10 @@ public class DatabaseManager {
             statement.setString(7, reactant.getLeft());
             statement.setString(8, reactant.getRight());
 
-            statement.executeUpdate(insertRecordQuery);
-
+            statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         } finally {
             try {
                 closeStatement(statement);
@@ -110,16 +96,13 @@ public class DatabaseManager {
                 e.printStackTrace();
             }
         }
+        return true;
     }
 
     public void closeStatement(PreparedStatement statement) throws Exception {
         if (statement != null) {
             statement.close();
         }
-        if (connection != null) {
-            connection.close();
-        }
-
     }
 
 

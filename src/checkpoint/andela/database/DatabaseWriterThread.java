@@ -1,6 +1,7 @@
 package checkpoint.andela.database;
 
 import checkpoint.andela.config.SharedBuffer;
+import checkpoint.andela.config.Complete;
 import checkpoint.andela.log.LogMessage;
 import checkpoint.andela.model.Reactant;
 
@@ -18,7 +19,7 @@ public class DatabaseWriterThread  implements Runnable {
 
     @Override
     public void run() {
-        while (!databaseBuffer.isEmpty()) {
+        while (!databaseBuffer.isEmpty() || !Complete.INSTANCE.isCompleted()) {
             Reactant reactant = databaseBuffer.retrieve();
             dbManager.insertIntoTable(reactant);
             LogMessage.logMessage("DBWriter", reactant.getUniqueId());
