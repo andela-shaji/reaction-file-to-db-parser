@@ -1,6 +1,7 @@
 package checkpoint.andela.parser;
 
 import checkpoint.andela.config.SharedBuffer;
+import checkpoint.andela.config.Task;
 import checkpoint.andela.database.DatabaseBuffer;
 import checkpoint.andela.log.LogMessage;
 import checkpoint.andela.model.Reactant;
@@ -27,6 +28,7 @@ public class ReactionParserThread implements Runnable {
             writeToBuffer(reactant);
             LogMessage.logMessage("FileParser", reactant.getUniqueId());
         }
+        Task.setWriting(false);
     }
 
     private void writeToBuffer(Reactant reactant) {

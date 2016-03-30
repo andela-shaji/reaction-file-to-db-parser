@@ -16,8 +16,6 @@ public class ReactionParser {
 
     private List<Reactant> reactants = new ArrayList<>();
 
-    private BufferedReader bufferedReader = null;
-
     public ReactionParser() {}
 
     public ReactionParser(String filePath) {
@@ -26,12 +24,24 @@ public class ReactionParser {
 
     }
     public void readFile(File file) {
+        BufferedReader bufferedReader = null;
         try {
             bufferedReader = new BufferedReader(new FileReader(file));
-            String contentLine = bufferedReader.readLine();
-            parseLine(contentLine);
+            String contentLine ;
+            while (bufferedReader.ready()) {
+                contentLine = bufferedReader.readLine();
+                parseLine(contentLine);
+            }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
