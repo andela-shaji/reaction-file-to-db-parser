@@ -14,9 +14,7 @@ import java.util.List;
 public class ReactionParser {
     private HashMap<String, String > attributeValuePair = new HashMap<>();
 
-    private List<Reactant> reactants = new ArrayList<Reactant>();
-
-    public ReactionParser() {}
+    private List<Reactant> reactants = new ArrayList<>();
 
     public ReactionParser(String filePath) {
         File file = new File(filePath);
@@ -45,7 +43,7 @@ public class ReactionParser {
         }
     }
 
-    public void parseLine(String line) {
+    private void parseLine(String line) {
         if (!hasComment(line)){
             if (!hasDelimiter(line)){
                 String[] data = line.split(" - ");
