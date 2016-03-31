@@ -9,39 +9,17 @@ A thread reads in the data into a buffer(temporary storage), another writes it i
 ## checkpoint.andela.parser.ReactionParser
 This class implements the Runnable class to read in and parse the attached document(reactant.dat) into a buffer.
 ```sh
- public void readFile(File file) {
-        BufferedReader bufferedReader = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader(file));
-            String contentLine ;
-            while (bufferedReader.ready()) {
-                contentLine = bufferedReader.readLine();
-                parseLine(contentLine);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (bufferedReader != null) {
-                    bufferedReader.close();
-                }
-            }catch (IOException e) {
-                e.printStackTrace();
-            }
+ @Override
+    public void run() {
+        List<Reactant> reactants = parser.getReactants();
+
+        for (Reactant reactant: reactants) {
+            writeToBuffer(reactant);
+            LogMessage.logMessage("FileParser", reactant.getUniqueId());
         }
+        Complete.INSTANCE.setCompleted(true);
     }
 
-    private void parseLine(String line) {
-        if (!hasComment(line)){
-            if (!hasDelimiter(line)){
-                String[] data = line.split(" - ");
-                attributeValuePair.putIfAbsent(data[0], data[1]);
-            } else {
-                reactants.add(createRow(attributeValuePair));
-                attributeValuePair = new HashMap<>();
-            }
-        }
-    }
 ```
 
 ## checkpoint.andela.db.DatabaseWriterThread
