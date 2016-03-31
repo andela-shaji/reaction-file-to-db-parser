@@ -1,7 +1,7 @@
 package checkpoint.andela.log;
 
-import checkpoint.andela.config.SharedBuffer;
-import checkpoint.andela.config.Complete;
+import checkpoint.andela.configs.SharedBuffer;
+import checkpoint.andela.configs.Complete;
 
 import java.io.*;
 

@@ -1,6 +1,6 @@
 package checkpoint.andela.database;
 
-import checkpoint.andela.config.Buffer;
+import checkpoint.andela.configs.Buffer;
 import checkpoint.andela.model.Reactant;
 
 import java.util.concurrent.LinkedBlockingQueue;

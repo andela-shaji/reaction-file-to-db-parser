@@ -1,4 +1,4 @@
-package checkpoint.andela.config;
+package checkpoint.andela.configs;
 
 /**
  * Created by suadahaji.

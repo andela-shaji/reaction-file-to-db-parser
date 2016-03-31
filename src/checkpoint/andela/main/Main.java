@@ -1,6 +1,6 @@
 package checkpoint.andela.main;
 
-import checkpoint.andela.config.Constants;
+import checkpoint.andela.configs.Constants;
 import checkpoint.andela.database.DatabaseWriterThread;
 import checkpoint.andela.log.LogWriterThread;
 import checkpoint.andela.parser.ReactionParserThread;

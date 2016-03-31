@@ -1,7 +1,7 @@
 package checkpoint.andela.database;
 
-import checkpoint.andela.config.Columns;
-import checkpoint.andela.config.Constants;
+import checkpoint.andela.configs.Columns;
+import checkpoint.andela.configs.Constants;
 import checkpoint.andela.model.Reactant;
 
 import java.sql.Connection;

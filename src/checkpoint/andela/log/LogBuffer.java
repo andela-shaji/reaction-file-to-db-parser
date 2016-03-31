@@ -1,6 +1,6 @@
 package checkpoint.andela.log;
 
-import checkpoint.andela.config.Buffer;
+import checkpoint.andela.configs.Buffer;
 
 import java.util.concurrent.LinkedBlockingQueue;
 

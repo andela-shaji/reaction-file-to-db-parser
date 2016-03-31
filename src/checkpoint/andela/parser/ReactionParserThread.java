@@ -1,7 +1,7 @@
 package checkpoint.andela.parser;
 
-import checkpoint.andela.config.SharedBuffer;
-import checkpoint.andela.config.Complete;
+import checkpoint.andela.configs.SharedBuffer;
+import checkpoint.andela.configs.Complete;
 import checkpoint.andela.database.DatabaseBuffer;
 import checkpoint.andela.log.LogMessage;
 import checkpoint.andela.model.Reactant;

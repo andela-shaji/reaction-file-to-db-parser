@@ -1,6 +1,6 @@
 package checkpoint.andela.parser;
 
-import checkpoint.andela.config.Constants;
+import checkpoint.andela.configs.Constants;
 import org.junit.Before;
 import org.junit.Test;
 
