@@ -8,6 +8,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * Created by suadahaji.
  */
 public class LogBuffer extends LinkedBlockingQueue<String> implements Buffer<String> {
+
     public void insert(String logMessage) {
         try {
             put(logMessage);

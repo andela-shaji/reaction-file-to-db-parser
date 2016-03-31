@@ -50,7 +50,7 @@ public class DatabaseManager {
         }
     }
 
-    public void createDbTable() throws Exception {
+    private void createDbTable() throws Exception {
         createDatabaseConnection(db_driver);
         String createTableQuery = "CREATE TABLE IF NOT EXISTS " + db_Name + "." + db_Table + " (`" + Columns.UNIQUEID + "` text, `" + Columns.TYPES
                 + "` text, `" + Columns.ATOMMAPPINGS + "` text, `" + Columns.CREDITS + "` text, `" + Columns.ECNUMBER
@@ -99,7 +99,7 @@ public class DatabaseManager {
         return true;
     }
 
-    public void closeStatement(PreparedStatement statement) throws Exception {
+    private void closeStatement(PreparedStatement statement) throws Exception {
         if (statement != null) {
             statement.close();
         }
