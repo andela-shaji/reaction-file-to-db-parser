@@ -1,6 +1,6 @@
 package checkpoint.andela.parser;
 
-import checkpoint.andela.config.Columns;
+import checkpoint.andela.configs.Columns;
 import checkpoint.andela.model.Reactant;
 
 import java.io.*;

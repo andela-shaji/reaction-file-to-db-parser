@@ -1,4 +1,4 @@
-package checkpoint.andela.config;
+package checkpoint.andela.configs;
 
 import checkpoint.andela.database.DatabaseBuffer;
 import checkpoint.andela.log.LogBuffer;

@@ -1,12 +1,10 @@
 package checkpoint.andela.parser;
 
-import checkpoint.andela.config.Constants;
+import checkpoint.andela.configs.Constants;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by suadahaji.

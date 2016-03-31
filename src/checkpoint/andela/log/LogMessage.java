@@ -1,6 +1,6 @@
 package checkpoint.andela.log;
 
-import checkpoint.andela.config.SharedBuffer;
+import checkpoint.andela.configs.SharedBuffer;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
