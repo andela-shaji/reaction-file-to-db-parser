@@ -9,6 +9,9 @@ import java.util.Date;
  * Created by suadahaji.
  */
 public class LogMessage {
+
+    public LogMessage(){}
+
     private static LogBuffer logBuffer = SharedBuffer.logBuffer();
 
     public static void logMessage(String currentLog, String columnValue) {

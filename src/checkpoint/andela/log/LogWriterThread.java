@@ -25,7 +25,7 @@ public class LogWriterThread implements Runnable{
         }
     }
 
-    private void writeToLog(String logMessage) {
+    public void writeToLog(String logMessage) {
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
